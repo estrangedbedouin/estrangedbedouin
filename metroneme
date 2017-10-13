@@ -1,0 +1,186 @@
+<html lang="en" class="mdl-js"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A lightweight metronome web app.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metronome</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="https://theandroidmaster.github.io/touch-icon-iphone.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Metronome">
+    <link rel="apple-touch-icon-precomposed" href="https://theandroidmaster.github.io/touch-icon-iphone.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="https://theandroidmaster.github.io/touch-icon-iphone.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="https://theandroidmaster.github.io/touch-icon-iphone.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.grey-red.min.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+
+    .demo-header .mdl-layout__header-row {
+        padding-left: 40px;
+    }
+
+    .demo-footer {
+      padding-left: 40px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .demo-footer .mdl-mini-footer--link-list a {
+      font-size: 13px;
+    }
+      
+    .center {
+      text-align: center;
+      position: absolute;
+      top: 40vh;
+      left: 50vw;
+      transform: translate(-50%, -50%);
+    }
+      
+    #tempo {
+      font-size: 34px;
+      opacity: 0.8;
+    }
+    </style>
+  <link rel="stylesheet" type="text/css" href="chrome-extension://immhpnclomdloikkpcefncmfgjbkojmh/emoji.css"></head>
+  <body>
+    <div class="mdl-layout__container has-scrolling-header"><div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded" data-upgraded=",MaterialLayout">
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Metronome</span>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="center">
+          <h2 id="tempo">120</h2>
+              
+          <button id="down" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" onclick="downTempo();" data-upgraded=",MaterialButton">
+            <i class="material-icons">remove</i>
+          </button>
+              
+          <button id="up" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" onclick="upTempo();" data-upgraded=",MaterialButton">
+            <i class="material-icons">add</i>
+          </button>
+          
+          <br>
+          <br>
+          
+          <button id="play" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="togglePlaying();" data-upgraded=",MaterialButton">
+            Play
+          </button>
+        </div>
+        
+        <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+              <li><a href="https://theandroidmaster.github.io/">Home Page</a></li>
+              <li><a href="https://theandroidmaster.github.io/#!/projects">Other Projects</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div></div>
+    <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+    <script>
+      var playing = false;
+      var interval;
+      var scaler;
+      var tempo = 120;
+      
+      var audioContext = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+      var oscillator = audioContext.createOscillator();
+      oscillator.start();
+      
+      document.getElementById('up').addEventListener("mousedown", startScalingUp);
+      document.getElementById('down').addEventListener("mousedown", startScalingDown);
+      document.addEventListener("mouseup", stopScaling);
+      
+      function startScalingUp() {
+        scaler = setTimeout(function() {
+          scaler = setInterval(function() {
+            upTempo(false);
+          }, 100);
+        }, 1000);
+      }
+      
+      function startScalingDown() {
+        scaler = setTimeout(function() {
+          scaler = setInterval(function() {
+            downTempo(false);
+          }, 100);
+        }, 1000);
+      }
+      
+      function stopScaling() {
+        if (scaler) clearInterval(scaler);
+      }
+      
+      function upTempo(refresh) {
+        if (tempo < 1200) tempo++;
+        document.getElementById('tempo').innerHTML = tempo;
+        if (playing && (refresh == null || refresh == true)) {
+          clearInterval(interval);
+          interval = setInterval(beep, 60000 / tempo);
+        }
+      }
+      
+      function downTempo(refresh) {
+        if (tempo > 1) tempo--;
+        document.getElementById('tempo').innerHTML = tempo;
+        if (playing && refresh) {
+          clearInterval(interval);
+          interval = setInterval(beep, 60000 / tempo);
+        }
+      }
+      
+      function togglePlaying() {
+        if (playing) {
+          clearInterval(interval);
+          playing = false;
+          document.getElementById('play').innerHTML = "Play";
+        } else {
+          interval = setInterval(beep, 60000 / tempo);
+          playing = true;
+          document.getElementById('play').innerHTML = "Pause";
+        }
+      }
+      
+      function beep() {
+        oscillator.connect(audioContext.destination);
+        
+        setTimeout(function() {
+          oscillator.disconnect(audioContext.destination);
+        }, 50);
+      };
+    </script>
+  
+
+</body></html>
