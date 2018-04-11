@@ -1,0 +1,141 @@
+<html>
+<head>
+     <link rel="stylesheet" type="text/css" href="imdone.css"/>
+    <link rel="stylesheet" href="animate.min.css">
+    </head>
+    <style>
+        .zak{
+            position:absolute;
+            float:left;
+            top:200px;
+            left:300px;
+            
+        }
+         #alien{
+        color: #575757;
+  font-family: 'josefin sans', sans-serif;
+        font-size: 20px;
+        line-height: 1.5em;
+             
+             
+       }
+    #div{
+        position: absolute;
+        top:400px;
+        float:left;
+        left: 200px;
+        
+        width: 70%;
+        
+        
+        }
+    
+    
+    </style>
+    <body>
+    
+        <div id="lone">
+     <p align= "right">Estranged bedouin<br><span class="who">You know who I am.</span> </p>
+     </div>
+        <div id="div"><p id="alien">I am a pre maturely ageing cynic with a tendency to mull over negative thoughts (as you probably knew already, but, you know, gotta make sure all the bases are covered right off the bat). I'm told I come off as cold. But if you're one of the few people who gets to know me, you'll find I'm also incredibly bitter. <br></br>
+I enjoy coding and performing various other standard human activities that don't implicate me as an undercover alien from another planet. When I'm off the clock, you might find me gulping Redbulls.</p></div>
+ 
+   <div id="lone">
+     <p  class="cool" align= "right">Estranged bedouin<br><span class="who">You know who I am.</span> </p>
+     </div>
+        <svg class="bar" width="2000" height="600">
+  <rect x="35" y="200" width="1270" height="25" style="fill:#ea7575;" />
+</svg>
+        <svg class="circle" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+         <svg class="c-1" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+         <svg class="c-2" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+         <svg class="c-3" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+         <svg class="c-4" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+        <svg class="c-5" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+        <svg class="c-6" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+        <svg class="c-7" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+        <svg class="c-8" width="100" height="100">
+        <circle cx="20" cy="20" r="5" fill="#ea7575" />
+        <circle cx="20" cy="45" r="5" fill="#ea7575" />
+        <circle cx="32" cy="34" r="5" fill="#balck" />
+        <circle cx="32" cy="60" r="5" fill="#black" />
+            <circle cx="45" cy="20" r="5" fill="#575757" />
+            <circle cx="45" cy="45" r="5" fill="#575757" />
+        </svg>
+     
+                
+                <div class="title">
+                    <a href="about.html" class= "t">About</a>
+                </div>
+                <div class="title1">
+                    <a href="faq.html" class="t">FAQ</a>
+                </div>
+                <div class="title2">
+                    <a href="contact.html" class="t">Contact</a>
+                </div>
+                
+               
+    </body>
+
+
+
+
+
+
+</html>
